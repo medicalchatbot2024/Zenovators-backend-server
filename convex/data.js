@@ -3,10 +3,10 @@ import { v } from "convex/values";
 
 export const store = mutation({
   args: {
-    heartrate: v.optional(v.number()),
-    spo2: v.optional(v.number()),
-    resprate: v.optional(v.number()),
-    temperature: v.optional(v.number()),
+    heartrate: v.optional(v.string()),
+    spo2: v.optional(v.string()),
+    resprate: v.optional(v.string()),
+    temperature: v.optional(v.string()),
   },
   handler: async (ctx, args) => {
     const newTaskId = await ctx.db.insert("data", { 

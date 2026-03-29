@@ -28,10 +28,10 @@ app.post('/api/data', async (req, res) => {
 
     // Call the Convex mutation ("data:store" -> data.js, store action)
     const resultId = await convex.mutation("data:store", { 
-      heartrate: heartrate != null ? Number(heartrate) : undefined,
-      spo2: spo2 != null ? Number(spo2) : undefined,
-      resprate: resprate != null ? Number(resprate) : undefined,
-      temperature: temperature != null ? Number(temperature) : undefined,
+      heartrate: heartrate != null ? String(heartrate) : undefined,
+      spo2: spo2 != null ? String(spo2) : undefined,
+      resprate: resprate != null ? String(resprate) : undefined,
+      temperature: temperature != null ? String(temperature) : undefined,
     });
 
     res.status(201).json({ 
