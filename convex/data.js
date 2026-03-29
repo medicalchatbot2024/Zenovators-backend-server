@@ -1,4 +1,4 @@
-import { mutation } from "./_generated/server";
+import { mutation, query } from "./_generated/server";
 import { v } from "convex/values";
 
 export const store = mutation({
@@ -17,5 +17,13 @@ export const store = mutation({
       createdAt: Date.now()
     });
     return newTaskId;
+  },
+});
+
+export const getRecentData = query({
+  args: {},
+  handler: async (ctx) => {
+    // Get the most recent reading from the 'data' table
+    return await ctx.db.query("data").order("desc").first();
   },
 });
